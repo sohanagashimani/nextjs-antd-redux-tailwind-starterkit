@@ -1,0 +1,5 @@
+npm run cspell:check
+npm run lint
+npm run prettier:check
+npm run jscpd:check .
+npm run test

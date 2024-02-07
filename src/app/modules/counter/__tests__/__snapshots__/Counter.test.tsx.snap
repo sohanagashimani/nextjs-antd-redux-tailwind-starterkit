@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter.tsx snapshot testing 1`] = `
+<div>
+  <main
+    class="flex min-h-screen flex-col items-center justify-center gap-6 bg-black text-white"
+  >
+    <img
+      alt="Next.js Logo"
+      class="dark:invert"
+      data-nimg="1"
+      decoding="async"
+      fetchpriority="high"
+      height="37"
+      src="/next.svg"
+      style="color: transparent;"
+      width="180"
+    />
+    <h1
+      class="text-5xl font-medium"
+    >
+      Counter
+    </h1>
+    <div
+      class="flex items-center"
+    >
+      <button
+        class="ant-btn css-dev-only-do-not-override-1b0bdye ant-btn-primary p-4"
+        data-testid="subtract-button"
+        type="button"
+      >
+        <span>
+          -
+        </span>
+      </button>
+      <div
+        class="p-4 text-2xl"
+        data-testid="count"
+      >
+        0
+      </div>
+      <button
+        class="ant-btn css-dev-only-do-not-override-1b0bdye ant-btn-primary p-4"
+        data-testid="add-button"
+        type="button"
+      >
+        <span>
+          +
+        </span>
+      </button>
+    </div>
+  </main>
+</div>
+`;

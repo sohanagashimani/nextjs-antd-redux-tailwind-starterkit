@@ -1,0 +1,57 @@
+name: _ON MERGE - Release
+
+'on':
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+env:
+  WIF_PROVIDER: ${{secrets.NEXTJS_STARTER_KIT_WIF_PROVIDER}}
+  WIF_SA_EMAIL: ${{secrets.NEXTJS_STARTER_KIT_WIF_SA_EMAIL}}
+
+jobs:
+  build_and_deploy_to_dev_site:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{env.WIF_PROVIDER}}
+          service_account: ${{env.WIF_SA_EMAIL}}
+
+      - name: build next js stater kit
+        run: npm run build
+
+      - name: deploy to firebase hosting
+        run: ./node_modules/.bin/firebase deploy --only hosting:nextjs-redux-starter-kit --project nextjs-redux-starter-kit
+
+      - name: Deployed
+        shell: bash
+        run: echo 'PREVIEW >>> https://nextjs-redux-starter-kit.web.app/'

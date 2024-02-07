@@ -1,0 +1,63 @@
+{
+  "name": "nextjs-antd-redux-tailwind-starterkit",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3008",
+    "cspell:check": "cspell --quiet",
+    "jscpd:check": "jscpd",
+    "prettier:format": "prettier --write . ",
+    "prettier:check": "prettier --check . ",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "prepare": "husky"
+  },
+  "engines": {
+    "npm": ">=9.8.1",
+    "node": ">=18.18.1"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
+    "@reduxjs/toolkit": "^2.1.0",
+    "antd": "^5.13.3",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-redux": "^9.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.0",
+    "@testing-library/react": "^14.2.0",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "autoprefixer": "^10.0.1",
+    "cspell": "^8.3.2",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.6.3",
+    "eslint-plugin-no-relative-import-paths": "^1.5.3",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^9.0.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jscpd": "^3.5.10",
+    "postcss": "^8",
+    "postcss-antd-fixes": "^0.2.0",
+    "prettier": "^3.1.0",
+    "prettier-2": "npm:prettier@^2",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "threshold": 0,
+  "reporters": ["html", "console"],
+  "ignore": ["**/__snapshots__/**", "**/__test__/**"],
+  "absolute": true,
+  "pattern": "app/**/*.*"
+}

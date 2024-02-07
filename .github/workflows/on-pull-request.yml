@@ -1,0 +1,39 @@
+name: On Pull Request
+on: pull_request
+
+jobs:
+  pre_checks:
+    runs-on: ubuntu-latest
+    name: Build and validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@master
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install node_modules
+        run: npm ci
+
+      - name: Node version
+        run: node -v
+
+      - name: Check spelling
+        run: npm run cspell:check
+
+      - name: Check for linting issues
+        run: npm run lint
+
+      - name: Check code format
+        run: npm run prettier:check
+
+      - name: Check jscpd
+        run: npm run jscpd:check .
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Run Build
+        run: npm run build
